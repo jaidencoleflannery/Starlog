@@ -124,6 +124,25 @@ body{
 
 }
 
+#add > svg:hover{
+
+    cursor: pointer;
+
+    scale: 1.02;
+
+    transition: .5s;
+
+    border-radius: .1em;
+
+    box-shadow: 
+    rgb(85, 91, 255) 0px 0px 0px 2px, 
+    rgb(31, 193, 27) 0px 0px 0px 4px, 
+    rgb(255, 217, 19) 0px 0px 0px 6px, 
+    rgb(255, 156, 85) 0px 0px 0px 8px, 
+    rgb(255, 85, 85) 0px 0px 0px 10px;
+
+}
+
 #addIcon{
 
   padding: auto;
@@ -149,6 +168,8 @@ body{
   min-width: 15em;
 
   margin-top: 1em;
+
+  cursor: pointer;
 
 }
 
@@ -213,7 +234,10 @@ body{
     flex-direction: column;
 
     flex-grow: 10;
-    max-width: 25%;
+    max-width: 20%;
+    min-width: 20%;
+    max-height: 10em;
+    min-height: 10em;
 
     overflow: hidden;
 
@@ -234,7 +258,10 @@ body{
     flex-direction: column;
 
     flex-grow: 10;
-    max-width: 25%;
+    max-width: 20%;
+    min-width: 20%;
+    max-height: 10em;
+    min-height: 10em;
 
     overflow: hidden;
 
@@ -245,6 +272,7 @@ body{
 
     margin: 1%;
     margin-bottom: 0;
+    padding: 0;
 
     transition-duration: .5s;
 
@@ -285,6 +313,8 @@ body{
     
     display: flex;
 
+    height: 80%;
+
     justify-content: center;
     text-align: center;
 
@@ -297,10 +327,14 @@ body{
     display: flex;
     flex-grow: 100;
 
+    height: fit-content;
+
+    margin: .5em;
+
     bottom: auto;
 
     justify-content: right;
-    align-items: right;
+    align-items: center;
 
 }
 
