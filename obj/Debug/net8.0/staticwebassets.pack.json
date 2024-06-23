@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets/css/main.css"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images",
-      "PackagePath": "staticwebassets"
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/checkmark.svg",
+      "PackagePath": "staticwebassets/images/checkmark.svg"
+    },
+    {
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/finished.svg",
+      "PackagePath": "staticwebassets/images/finished.svg"
+    },
+    {
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/plus.svg",
+      "PackagePath": "staticwebassets/images/plus.svg"
+    },
+    {
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/thumbsup.svg",
+      "PackagePath": "staticwebassets/images/thumbsup.svg"
     },
     {
       "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/index.html",

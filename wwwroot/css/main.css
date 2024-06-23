@@ -56,6 +56,8 @@ body{
 
 #title{
 
+        cursor: pointer;
+
         display: flex;
 
         justify-content: center;
@@ -159,7 +161,7 @@ body{
   z-index: 99;
 
   background-color: #3037ff;
-  border: 2px dashed #ffffff;
+  border: .15em dashed #ffffff;
   border-radius: 1em;
 
   min-width: 15em;
@@ -173,6 +175,22 @@ body{
 
 }
 
+.sectionTitle{
+
+    display: flex;
+    width: 100%;
+
+    padding: .8%;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+    border-bottom: .15em dashed #7075FF;
+    color: #7075FF;
+
+}
 
 #ItemsList{
 
@@ -183,7 +201,7 @@ body{
 
     transition-duration: 1s;
 
-    border: 2px dashed #ffffff;
+    border: .15em dashed #ffffff;
     border-radius: 1em;
 
     padding: 0;
@@ -201,7 +219,7 @@ body{
 
     transition-duration: 1s;
 
-    border: 2px dashed #7075FF;
+    border: .15em dashed #7075FF;
     color: #7075FF;
     
     border-radius: 1em;
@@ -228,6 +246,36 @@ body{
 
 }
 
+#EmptyTodoItem{
+
+    padding: 5em;
+
+    display: flex;
+    flex-grow: 10;
+
+    width: 100%;
+
+}
+
+#EmptyTodoItemCompleted{
+
+    padding: 5em;
+
+    display: flex;
+    flex-grow: 10;
+
+    width: 100%;
+
+}
+
+#ItemsList > .sectionTitle{
+    color: white;
+
+    border-bottom: .15em dashed white;
+    color: white;
+
+}
+
 .TodoItem{
 
     display: flex;
@@ -241,7 +289,7 @@ body{
 
     overflow: hidden;
 
-    border: 2px dashed #ffffff;
+    border: .15em dashed #ffffff;
     border-radius: .5em;
 
     margin: 1%;
@@ -267,7 +315,7 @@ body{
 
     color: #7075FF;
 
-    border: 2px dashed #7075FF;
+    border: .15em dashed #7075FF;
     border-radius: .5em;
 
     margin: 1%;
@@ -275,6 +323,20 @@ body{
     padding: 0;
 
     transition-duration: .5s;
+
+}
+
+.TodoItemEmpty{
+
+    display: flex;
+
+    height: 80%;
+    width: 100%;
+
+    justify-content: center;
+    text-align: center;
+
+    padding: 10%;
 
 }
 
