@@ -42,44 +42,9 @@ function TitleColor(){
 
 
 function Add(){
-    //find button
-    const addButton = document.getElementById('add');
-
-    //add div for add when button is clicked
-    addButton.addEventListener("click", (event) => {
-        addCheck = document.getElementById('addDiv');
-            if(addCheck){
-                    addCheck.remove();
-            }
-
-        const addDiv = document.createElement("div");
-        addDiv.id = "addDiv";
-
-        add = document.getElementById('add');
-        add.append(addDiv);
-
-        //check for placement and then append to page
-    const placement = document.getElementById('add');
-    if(placement){
-        const main = document.getElementById("main")
-            if(main){
-                main.insertBefore(add, placement);
-            } else{
-                console.log("ERROR: main not found.")
-            }
-        } else{
-            console.log("ERROR: placement not found for add dropdown.")
-        }
-
-        const addDivAfter = document.getElementById('addDiv');
     
-    console.log(addDiv);
-    addDivAfter.addEventListener("mouseout", (event) => {
-        console.log("off");
-            addDiv.remove();
-        });
+    
 
-    });
 }
 
 
