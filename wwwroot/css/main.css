@@ -251,6 +251,122 @@ input[type=checkbox].hidden{
 
 }
 
+#NavForm{
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    overflow: auto;
+        /* hide scrollbar */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 50em;
+    width: 50em;
+
+    background-color: #3037ff;
+
+    transition-duration: .5s;
+
+    border: .15em dashed #ffffff;
+    border-radius: 1em;
+
+}
+
+#AddFormContainer{
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 10;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+#AddForm{
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.AddTask{
+
+    display: flex;
+    flex-grow: 10;
+    flex-direction: column;
+
+    width: fit-content;
+
+    padding: 5%;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.AddTask > label{
+
+    display: flex;
+    flex-grow: 10;
+
+    width: fit-content;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 3em;
+
+        font-family: "Silkscreen", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+
+}
+
+.AddTask > input{
+
+    display: flex;
+
+    width: fit-content;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: .25em;
+
+    padding: .5em;
+
+    font-size: 1em;
+
+        font-family: "Silkscreen", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+
+}
+
 .sectionTitle{
 
     display: flex;
@@ -279,10 +395,9 @@ input[type=checkbox].hidden{
     max-height: 20em;
 
     overflow: auto;
-
-    /* hide scrollbar */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+        /* hide scrollbar */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
 
     transition-duration: 1s;
 

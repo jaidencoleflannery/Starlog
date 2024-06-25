@@ -1,7 +1,7 @@
 window.onload = function() {
 
     TitleColor();
-    Add();
+    NavOptions();
 
   };
 
@@ -41,9 +41,77 @@ function TitleColor(){
 
 
 
-function Add(){
+function NavOptions(){
+
+    //form to hold user input(generates on click)
+    const navForm = document.createElement("div");
+
+    //add
+    const add = document.getElementById("addCheckbox");
     
-    
+    add.addEventListener("click", (event) => {
+        console.log("ADD");
+
+        //#NavForm contains styling that will make the parent div appear
+        navForm.id = "NavForm";
+
+        //fill form with options
+        const addForm = document.createElement("div");
+        addForm.id = "AddFormContainer";
+
+        const addFormContent =
+            `<form id="AddForm">
+                <div class="AddTask">
+                    <label>TASK</label>
+                    <br>
+                    <input type="text">
+                </div>
+                <div class="AddTask">
+                    <label>COMPLETED</label>
+                    <br>
+                    <input type="checkbox">
+                </div>
+                <div class="AddTask">
+                    <input type="submit" value="ADD">
+                </div>
+            </form>`
+
+            addForm.innerHTML = addFormContent;
+            navForm.appendChild(addForm);
+    });
+
+    //remove
+    const remove = document.getElementById("removeCheckbox");
+
+    remove.addEventListener("click", (event) => {
+        console.log("REMOVE");
+
+        //#NavForm contains styling that will make the parent div appear
+        navForm.id = "NavForm";
+    });
+
+    //clear all
+    const clearAll = document.getElementById("clearAllCheckbox");
+
+    clearAll.addEventListener("click", (event) => {
+        console.log("CLEAR ALL");
+
+        //#NavForm contains styling that will make the parent div appear
+        navForm.id = "NavForm";
+    });
+
+    //append form to page (occurs at first loading of page)
+    const endOfList = document.getElementById('footer');
+    if(endOfList){
+        const main = document.getElementById("main");
+            if(main){
+                main.insertBefore(navForm, endOfList);
+            } else{
+                console.log("ERROR: main not found.");
+            }
+    } else{
+        console.log("ERROR: endOfList not found.");
+    }
 
 }
 
