@@ -50,7 +50,6 @@ function NavOptions(){
     const add = document.getElementById("addCheckbox");
     
     add.addEventListener("click", (event) => {
-        console.log("ADD");
 
         //#NavForm contains styling that will make the parent div appear
         navForm.id = "NavForm";
@@ -64,12 +63,12 @@ function NavOptions(){
                 <div class="AddTask">
                     <label>TASK</label>
                     <br>
-                    <input type="text">
+                    <input type="text" placeholder="TODO" id="AddTaskInput">
                 </div>
                 <div class="AddTask">
                     <label>COMPLETED</label>
                     <br>
-                    <input type="checkbox">
+                    <input type="checkbox" value="true" id="AddCompletedCheckbox">
                 </div>
                 <div class="AddTask">
                     <input type="submit" value="ADD">
@@ -78,13 +77,67 @@ function NavOptions(){
 
             addForm.innerHTML = addFormContent;
             navForm.appendChild(addForm);
+
+            let cursor = document.getElementById("AddForm");
+
+            cursor.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                let task = document.getElementById("AddTaskInput");
+                // this is always returning true for some reason V
+                let completedString = document.getElementById("AddCompletedCheckbox");
+                let completed = false;
+                    if(completedString.value == "true"){
+                        completed = true;
+                    }
+
+                                //post supplied data
+
+                                    // Define the data you want to send in the request
+                                    const data = {
+                                        Name: task.value,
+                                        IsComplete: completed
+                                    };
+
+                                    // Define the options for the fetch request
+                                    const options = {
+                                        method: 'POST', // Specify the HTTP method
+                                        headers: {
+                                            'Content-Type': 'application/json' // Set the content type to JSON
+                                        },
+                                        body: JSON.stringify(data) // Convert the data to a JSON string
+                                    };
+
+                                    // Use fetch to send the POST request
+                                    fetch('http://localhost:5101/api/TodoItems', options)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                // Handle HTTP errors
+                                                throw new Error('Network response was not ok ' + response.statusText);
+                                            }
+                                            return response.json(); // Parse the JSON response
+                                        })
+                                        .then(data => {
+                                            console.log('Success:', data); // Handle the success case
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error); // Handle errors
+                                        });
+
+
+                    //remove add menu
+                    cursor = document.getElementById("NavForm");
+                    cursor.remove();
+
+                    location.reload();
+
+              });
     });
 
     //remove
     const remove = document.getElementById("removeCheckbox");
 
     remove.addEventListener("click", (event) => {
-        console.log("REMOVE");
 
         //#NavForm contains styling that will make the parent div appear
         navForm.id = "NavForm";
@@ -94,7 +147,6 @@ function NavOptions(){
     const clearAll = document.getElementById("clearAllCheckbox");
 
     clearAll.addEventListener("click", (event) => {
-        console.log("CLEAR ALL");
 
         //#NavForm contains styling that will make the parent div appear
         navForm.id = "NavForm";
@@ -318,6 +370,5 @@ async function DisplayFetch(end) {
     } else{
         console.log("ERROR: endOfList not found.")
     }
-    console.log(itemsListCompleted);
 
 }
