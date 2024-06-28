@@ -28,7 +28,7 @@ body{
     max-height: 100vh;
     min-width: 100vw;
     max-width: 100vw;
-    overflow: scroll;
+    overflow: auto;
 
     margin: 0;
     padding: 0;

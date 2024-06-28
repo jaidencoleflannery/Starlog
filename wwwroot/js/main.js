@@ -8,6 +8,7 @@ window.onload = function() {
 
 
 
+//add color styling to title on hover
 function TitleColor(){
 
     const starlog = document.getElementsByClassName('starlog');
@@ -41,6 +42,7 @@ function TitleColor(){
 
 
 
+//adds add, remove, and clearall functionality to nav dropdown
 function NavOptions(){
 
     //form to hold user input(generates on click)
@@ -85,9 +87,12 @@ function NavOptions(){
 
                 let task = document.getElementById("AddTaskInput");
                 // this is always returning true for some reason V
-                let completedString = document.getElementById("AddCompletedCheckbox");
+                let completedCheck = document.getElementById("AddCompletedCheckbox").checked;
+
+                console.log(completedCheck);
+
                 let completed = false;
-                    if(completedString.value == "true"){
+                    if(completedCheck == true){
                         completed = true;
                     }
 
