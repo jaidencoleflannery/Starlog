@@ -281,7 +281,7 @@ input[type=checkbox].hidden{
 
 }
 
-#AddFormContainer{
+#FormContainer{
 
     display: flex;
     flex-direction: column;
