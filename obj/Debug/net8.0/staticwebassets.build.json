@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5M0AylVmXEgIddiDR6b0nbnWK2/b7/srtXGHxC3cjFs=",
+  "Hash": "x6165XDOntwB20CpCNfXA2Uy5eUhUMBZ2vZlLZ+isaw=",
   "Source": "TodoApi",
   "BasePath": "_content/TodoApi",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "TodoApi\\wwwroot",
+      "Name": "TodoApi/wwwroot",
       "Source": "TodoApi",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\css\\main.css",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/css/main.css",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "css/main.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\main.css"
+      "OriginalItemSpec": "wwwroot/css/main.css"
     },
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\checkmark.svg",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/checkmark.svg",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "images/checkmark.svg",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\checkmark.svg"
+      "OriginalItemSpec": "wwwroot/images/checkmark.svg"
     },
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\finished.svg",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/finished.svg",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "images/finished.svg",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\finished.svg"
+      "OriginalItemSpec": "wwwroot/images/finished.svg"
     },
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\plus.svg",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/plus.svg",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "images/plus.svg",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\plus.svg"
+      "OriginalItemSpec": "wwwroot/images/plus.svg"
     },
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\thumbsup.svg",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/thumbsup.svg",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "images/thumbsup.svg",
       "AssetKind": "All",
@@ -109,13 +109,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\thumbsup.svg"
+      "OriginalItemSpec": "wwwroot/images/thumbsup.svg"
     },
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\index.html",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/index.html",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.html"
+      "OriginalItemSpec": "wwwroot/index.html"
     },
     {
-      "Identity": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\main.js",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/main.js",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "js/main.js",
       "AssetKind": "All",
@@ -147,7 +147,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\main.js"
+      "OriginalItemSpec": "wwwroot/js/main.js"
     }
   ]
 }

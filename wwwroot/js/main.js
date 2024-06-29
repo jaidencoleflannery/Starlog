@@ -45,8 +45,15 @@ function TitleColor(){
 //adds add, remove, and clearall functionality to nav dropdown
 function NavOptions(){
 
+    const navExists = document.getElementById("NavFormEmpty");
+    if(navExists){
+        navExists.remove();
+        console.log("NAV REMOVED");
+    }
+
     //form to hold user input(generates on click)
     const navForm = document.createElement("div");
+    navForm.id = "NavFormEmpty";
 
     //add
     const add = document.getElementById("addCheckbox");
@@ -147,10 +154,13 @@ function NavOptions(){
     remove.addEventListener("click", (event) => {
 
         //remove previous menu
-        let navCheck = document.getElementById("NavForm");
+        /*
+        let navCheck = document.getElementById("FormContainer");
         if(navCheck){
+            console.log("REMOVED");
             navCheck.remove();
         }
+            */
 
         //#NavForm contains styling that will make the parent div appear
         navForm.id = "NavForm";
@@ -172,7 +182,7 @@ function NavOptions(){
                     <input type="text" placeholder="#" id="RemoveId">
                 </div>
                 <div class="AddTask">
-                    <input type="submit" value="ADD">
+                    <input type="submit" value="REMOVE">
                 </div>
             </form>`
 
@@ -185,7 +195,6 @@ function NavOptions(){
                     e.preventDefault();
 
                     let task = document.getElementById("RemoveTaskInput");
-                    // this is always returning true for some reason V
                     let Id = document.getElementById("RemoveId").value;
 
                     console.log(Id);
@@ -237,8 +246,6 @@ function NavOptions(){
                         location.reload();
 
                 });
-            }else{
-                console.log("ERROR: RemoveForm not found");
             }
     });
 
