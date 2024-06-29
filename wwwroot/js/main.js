@@ -56,9 +56,15 @@ function NavOptions(){
     navForm.id = "NavFormEmpty";
 
     //add
-    const add = document.getElementById("addCheckbox");
+    const add = document.getElementById("AddOption");
     
     add.addEventListener("click", (event) => {
+
+        //remove menu
+        let cursor = document.getElementById("FormContainer");
+        if(cursor){
+            cursor.remove();
+        }
 
         //#NavForm contains styling that will make the parent div appear
         navForm.id = "NavForm";
@@ -87,16 +93,14 @@ function NavOptions(){
             addForm.innerHTML = addFormContent;
             navForm.appendChild(addForm);
 
-            let cursor = document.getElementById("AddForm");
+            const addCursor = document.getElementById("AddForm");
 
-            cursor.addEventListener("submit", (e) => {
+            addCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
 
                 let task = document.getElementById("AddTaskInput");
                 // this is always returning true for some reason V
                 let completedCheck = document.getElementById("AddCompletedCheckbox").checked;
-
-                console.log(completedCheck);
 
                 let completed = false;
                     if(completedCheck == true){
@@ -138,7 +142,7 @@ function NavOptions(){
 
 
                     //remove add menu
-                    cursor = document.getElementById("NavForm");
+                    let cursor = document.getElementById("NavForm");
                     cursor.remove();
 
                     location.reload();
@@ -149,18 +153,15 @@ function NavOptions(){
 
 
     //remove
-    const remove = document.getElementById("removeCheckbox");
+    const remove = document.getElementById("RemoveOption");
     
     remove.addEventListener("click", (event) => {
 
-        //remove previous menu
-        /*
-        let navCheck = document.getElementById("FormContainer");
-        if(navCheck){
-            console.log("REMOVED");
-            navCheck.remove();
+        //remove menu
+        let cursor = document.getElementById("FormContainer");
+        if(cursor){
+            cursor.remove();
         }
-            */
 
         //#NavForm contains styling that will make the parent div appear
         navForm.id = "NavForm";
@@ -174,7 +175,7 @@ function NavOptions(){
                 <div class="AddTask">
                     <label>TASK</label>
                     <br>
-                    <input type="text" placeholder="TODO" id="AddTaskInput">
+                    <input type="text" placeholder="TODO" id="RemoveTaskInput">
                 </div>
                 <div class="AddTask">
                     <label>ID</label>
@@ -189,64 +190,57 @@ function NavOptions(){
             removeForm.innerHTML = removeFormContent;
             navForm.appendChild(removeForm);
 
-            cursor = document.getElementById("RemoveForm");
-            if(cursor){
-                cursor.addEventListener("submit", (e) => {
-                    e.preventDefault();
+            const removeCursor = document.getElementById("RemoveForm");
 
-                    let task = document.getElementById("RemoveTaskInput");
-                    let Id = document.getElementById("RemoveId").value;
+            removeCursor.addEventListener("submit", (e) => {
+                e.preventDefault();
 
-                    console.log(Id);
+                let task = document.getElementById("RemoveTaskInput");
+                let id = document.getElementById("RemoveId");
 
-                    //implement check to see if Id exists in database (fetch?)
-                    let check = false;
-                        if(Id == 123){
-                            check = true;
-                        }
+                console.log(completedCheck);
 
-                                    //clear supplied data
+                                //post supplied data
 
-                                        // Define the data you want to send in the request
-                                        const data = {
-                                            Id: Id,
-                                            Name: task.value
-                                        };
+                                    // Define the data you want to send in the request
+                                    const data = {
+                                        Id: id.value,
+                                        Name: task.value
+                                    };
 
-                                        // Define the options for the fetch request
-                                        const options = {
-                                            method: 'DELETE', // Specify the HTTP method
-                                            headers: {
-                                                'Content-Type': 'application/json' // Set the content type to JSON
-                                            },
-                                            body: JSON.stringify(data) // Convert the data to a JSON string
-                                        };
+                                    // Define the options for the fetch request
+                                    const options = {
+                                        method: 'DELETE', // Specify the HTTP method
+                                        headers: {
+                                            'Content-Type': 'application/json' // Set the content type to JSON
+                                        },
+                                        body: JSON.stringify(data) // Convert the data to a JSON string
+                                    };
 
-                                        // Use fetch to send the POST request
-                                        fetch('http://localhost:5101/api/TodoItems/' + Id, options)
-                                            .then(response => {
-                                                if (!response.ok) {
-                                                    // Handle HTTP errors
-                                                    throw new Error('Network response was not ok ' + response.statusText);
-                                                }
-                                                return response.json(); // Parse the JSON response
-                                            })
-                                            .then(data => {
-                                                console.log('Success, deleted:', data); // Handle the success case
-                                            })
-                                            .catch(error => {
-                                                console.error('Error:', error); // Handle errors
-                                            });
+                                    // Use fetch to send the POST request
+                                    fetch('http://localhost:5101/api/TodoItems/' + id.value, options)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                // Handle HTTP errors
+                                                throw new Error('Network response was not ok ' + response.statusText);
+                                            }
+                                            return response.json(); // Parse the JSON response
+                                        })
+                                        .then(data => {
+                                            console.log('Success, removed:', data); // Handle the success case
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error); // Handle errors
+                                        });
 
 
-                        //remove menu
-                        cursor = document.getElementById("NavForm");
-                        cursor.remove();
+                    //remove menu
+                    let cursor = document.getElementById("NavForm");
+                    cursor.remove();
 
-                        location.reload();
+                    location.reload();
 
-                });
-            }
+              });
     });
 
     //clear all
