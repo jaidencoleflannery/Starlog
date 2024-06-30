@@ -116,6 +116,22 @@ public class TodoItemsController : ControllerBase
         return NoContent();
     }
 
+    // DELETE: api/TodoItems
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAllTodoItems()
+    {
+    var allTodoItems = _context.TodoItems.ToList();
+    if (allTodoItems == null || !allTodoItems.Any())
+    {
+        return NotFound();
+    }
+
+    _context.TodoItems.RemoveRange(allTodoItems);
+    await _context.SaveChangesAsync();
+
+    return NoContent();
+    }
+
     private bool TodoItemExists(long id)
     {
         return _context.TodoItems.Any(e => e.Id == id);

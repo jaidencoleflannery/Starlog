@@ -48,7 +48,6 @@ function NavOptions(){
     const navExists = document.getElementById("NavFormEmpty");
     if(navExists){
         navExists.remove();
-        console.log("NAV REMOVED");
     }
 
     //form to hold user input(generates on click)
@@ -107,37 +106,37 @@ function NavOptions(){
                         completed = true;
                     }
 
-                                //post supplied data
+                                // post supplied data
 
-                                    // Define the data you want to send in the request
+                                    // data you want to send in the request
                                     const data = {
                                         Name: task.value,
                                         IsComplete: completed
                                     };
 
-                                    // Define the options for the fetch request
+                                    // fetch options
                                     const options = {
-                                        method: 'POST', // Specify the HTTP method
+                                        method: 'POST',
                                         headers: {
-                                            'Content-Type': 'application/json' // Set the content type to JSON
+                                            'Content-Type': 'application/json'
                                         },
-                                        body: JSON.stringify(data) // Convert the data to a JSON string
+                                        body: JSON.stringify(data) // convert the data to a JSON string
                                     };
 
-                                    // Use fetch to send the POST request
+                                    // use fetch to send the POST request
                                     fetch('http://localhost:5101/api/TodoItems', options)
                                         .then(response => {
                                             if (!response.ok) {
-                                                // Handle HTTP errors
+                                                // handle HTTP errors
                                                 throw new Error('Network response was not ok ' + response.statusText);
                                             }
                                             return response.json(); // Parse the JSON response
                                         })
                                         .then(data => {
-                                            console.log('Success, added:', data); // Handle the success case
+                                            console.log('Success, added:', data);
                                         })
                                         .catch(error => {
-                                            console.error('Error:', error); // Handle errors
+                                            console.error('Error:', error);
                                         });
 
 
@@ -198,21 +197,19 @@ function NavOptions(){
                 let task = document.getElementById("RemoveTaskInput");
                 let id = document.getElementById("RemoveId");
 
-                console.log(completedCheck);
-
                                 //post supplied data
 
-                                    // Define the data you want to send in the request
+                                    // data you want to send in the request
                                     const data = {
                                         Id: id.value,
                                         Name: task.value
                                     };
 
-                                    // Define the options for the fetch request
+                                    // define the options for the fetch request
                                     const options = {
-                                        method: 'DELETE', // Specify the HTTP method
+                                        method: 'DELETE',
                                         headers: {
-                                            'Content-Type': 'application/json' // Set the content type to JSON
+                                            'Content-Type': 'application/json'
                                         },
                                         body: JSON.stringify(data) // Convert the data to a JSON string
                                     };
@@ -224,13 +221,13 @@ function NavOptions(){
                                                 // Handle HTTP errors
                                                 throw new Error('Network response was not ok ' + response.statusText);
                                             }
-                                            return response.json(); // Parse the JSON response
+                                            return response.json();
                                         })
                                         .then(data => {
-                                            console.log('Success, removed:', data); // Handle the success case
+                                            console.log('Success, removed:', data);
                                         })
                                         .catch(error => {
-                                            console.error('Error:', error); // Handle errors
+                                            console.error('Error:', error); 
                                         });
 
 
@@ -244,7 +241,72 @@ function NavOptions(){
     });
 
     //clear all
-    const clearAll = document.getElementById("clearAllCheckbox");
+    const clearAll = document.getElementById("ClearAllOption");
+    
+    clearAll.addEventListener("click", (event) => {
+
+        //remove menu
+        let cursor = document.getElementById("FormContainer");
+        if(cursor){
+            cursor.remove();
+        }
+
+        //#NavForm contains styling that will make the parent div appear
+        navForm.id = "NavForm";
+
+        //fill form with options
+        const clearForm = document.createElement("div");
+        clearForm.id = "FormContainer";
+
+        const clearFormContent =
+            `<form id="ClearForm">
+                <div class="AddTask">
+                    <label>CLEAR ALL?</label>
+                </div>
+                <div class="AddTask">
+                    <input type="submit" value="YES">
+                </div>
+            </form>`
+
+            clearForm.innerHTML = clearFormContent;
+            navForm.appendChild(clearForm);
+
+            const clearCursor = document.getElementById("ClearForm");
+
+            clearCursor.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                                //clear all data
+
+                                    const options = {
+                                        method: 'DELETE'
+                                    };
+
+                                    // fetch clear data
+                                    fetch('http://localhost:5101/api/TodoItems', options)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                // Handle HTTP errors
+                                                throw new Error('Network response was not ok ' + response.statusText);
+                                            }
+                                            return response.json();
+                                        })
+                                        .then(data => {
+                                            console.log('Success, cleared');
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                        });
+
+
+                    //remove menu
+                    let cursor = document.getElementById("NavForm");
+                    cursor.remove();
+
+                    location.reload();
+
+              });
+    });
 
     clearAll.addEventListener("click", (event) => {
 
