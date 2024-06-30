@@ -5,9 +5,6 @@ window.onload = function() {
 
   };
 
-
-
-
 //add color styling to title on hover
 function TitleColor(){
 
@@ -40,9 +37,6 @@ function TitleColor(){
     }
 
 }
-
-
-
 
 //adds add, remove, and clearall functionality to nav dropdown
 function NavOptions(){
@@ -151,8 +145,6 @@ function NavOptions(){
               });
     });
     
-
-
     //remove
     const remove = document.getElementById("RemoveOption");
     
@@ -331,9 +323,6 @@ function NavOptions(){
 
 }
 
-
-
-
 //fetch todo list and display each item in a container
 async function DisplayFetch(end) {
     //fetch todo list
@@ -429,12 +418,12 @@ async function DisplayFetch(end) {
 
             //checkmark for completing/uncompleting
             const checkDiv = document.createElement("div");
-            checkDiv.className = "svgContainer";
+            checkDiv.className = "CompleteCheck";
 
             // Add checkmarks to todo items
             const svgContent = 
 
-                `<svg fill="#ffffff" width="30" height="30" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                `<svg fill="#ffffff" width="30" height="30" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" id="CompleteCheckSVG">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
                 <g id="SVGRepo_iconCarrier"> <title>add</title> <path d="M24 18h-6v6h-4v-6h-6v-4h6v-6h4v6h6v4z"/> </g>
@@ -534,5 +523,53 @@ async function DisplayFetch(end) {
     } else{
         console.log("ERROR: endOfList not found.")
     }
+
+    // add complete button functionality
+
+        //find id
+        const check = document.getElementById("CompleteCheckSVG");
+
+        check.addEventListener("click", (event) => {
+    
+            console.log("COMPLETED");
+
+                            // post supplied data
+
+                                    // !!! add specific task functionality via id
+
+                                    const id = 0;
+
+                                    // data you want to send in the request
+                                    const data = {
+                                        Id: id,
+                                        IsComplete: true
+                                    };
+
+                                    // fetch options
+                                    const options = {
+                                        method: 'PUT',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(data) // convert the data to a JSON string
+                                    };
+
+                                    // use fetch to send the POST request
+                                    fetch('http://localhost:5101/api/TodoItems/' + Id, options)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                // handle HTTP errors
+                                                throw new Error('Network response was not ok ' + response.statusText);
+                                            }
+                                            return response.json(); // Parse the JSON response
+                                        })
+                                        .then(data => {
+                                            console.log('Success, completed:', data);
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                        });
+    
+        });
 
 }
