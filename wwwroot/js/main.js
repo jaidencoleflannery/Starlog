@@ -28,6 +28,8 @@ function TitleColor(){
             var colors = ['#555bff', '1fc11b', '#ffd913', '#ff9c55', '#ff5555'];
             var randomColor = colors[Math.floor(Math.random() * colors.length)];
             cursor.style.color = randomColor;
+
+            window.location.href = "/index.html";
         });
 
         cursor.addEventListener("mouseout", (event) => {
@@ -73,7 +75,7 @@ function NavOptions(){
         addForm.id = "FormContainer";
 
         const addFormContent =
-            `<form id="AddForm">
+            `<form id="Form">
                 <div class="AddTask">
                     <label>TASK</label>
                     <br>
@@ -92,7 +94,7 @@ function NavOptions(){
             addForm.innerHTML = addFormContent;
             navForm.appendChild(addForm);
 
-            const addCursor = document.getElementById("AddForm");
+            const addCursor = document.getElementById("Form");
 
             addCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
@@ -170,7 +172,7 @@ function NavOptions(){
         removeForm.id = "FormContainer";
 
         const removeFormContent =
-            `<form id="RemoveForm">
+            `<form id="Form">
                 <div class="AddTask">
                     <label>TASK</label>
                     <br>
@@ -189,7 +191,7 @@ function NavOptions(){
             removeForm.innerHTML = removeFormContent;
             navForm.appendChild(removeForm);
 
-            const removeCursor = document.getElementById("RemoveForm");
+            const removeCursor = document.getElementById("Form");
 
             removeCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
@@ -259,7 +261,7 @@ function NavOptions(){
         clearForm.id = "FormContainer";
 
         const clearFormContent =
-            `<form id="ClearForm">
+            `<form id="Form">
                 <div class="AddTask">
                     <label>CLEAR ALL?</label>
                 </div>
@@ -271,7 +273,7 @@ function NavOptions(){
             clearForm.innerHTML = clearFormContent;
             navForm.appendChild(clearForm);
 
-            const clearCursor = document.getElementById("ClearForm");
+            const clearCursor = document.getElementById("Form");
 
             clearCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
