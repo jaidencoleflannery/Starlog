@@ -419,6 +419,7 @@ async function DisplayFetch(end) {
             //checkmark for completing/uncompleting
             const checkDiv = document.createElement("div");
             checkDiv.className = "CompleteCheck";
+            checkDiv.id = item.id;
 
             // Add checkmarks to todo items
             const svgContent = 
@@ -524,24 +525,43 @@ async function DisplayFetch(end) {
         console.log("ERROR: endOfList not found.")
     }
 
+
+    /////////////
+
     // add complete button functionality
 
+    const checkboxes = document.getElementsByClassName("CompleteCheck");
+
+    console.log(checkboxes);
+
+    for(checkbox in checkboxes){
+
         //find id
-        const check = document.getElementById("CompleteCheckSVG");
+        const check = document.getElementById(checkbox.id);
 
         check.addEventListener("click", (event) => {
     
-            console.log("COMPLETED");
+            console.log("COMPLETED " + checkbox.id);
+
+            const Name = "empty";
+            const Id = checkbox.id;
+
+            for(const item of todoList){
+                console.log(item.name);
+
+                if(item.id == Id){
+                    Name = item.name;
+                }
+
+            console.log("Data: " + Name + Id);
+            }
 
                             // post supplied data
 
-                                    // !!! add specific task functionality via id
-
-                                    const id = 0;
-
                                     // data you want to send in the request
                                     const data = {
-                                        Id: id,
+                                        Id: Id,
+                                        Name: Name,
                                         IsComplete: true
                                     };
 
@@ -571,5 +591,5 @@ async function DisplayFetch(end) {
                                         });
     
         });
-
+    }
 }
