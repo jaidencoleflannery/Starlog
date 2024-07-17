@@ -110,30 +110,39 @@ function NavOptions(){
                                         IsComplete: completed
                                     };
 
-                                    // fetch options
-                                    const options = {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify(data) // convert the data to a JSON string
-                                    };
+                                    const JSONdata = JSON.stringify(data);
+                                 
+                                    if(JSONdata !== undefined){
+                                        // fetch options
+                                        const options = {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify(data) // convert the data to a JSON string
+                                        };
 
-                                    // use fetch to send the POST request
-                                    fetch('http://localhost:5101/api/TodoItems', options)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                // handle HTTP errors
-                                                throw new Error('Network response was not ok ' + response.statusText);
-                                            }
-                                            return response.json(); // Parse the JSON response
-                                        })
-                                        .then(data => {
-                                            console.log('Success, added:', data);
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error);
-                                        });
+                                        // use fetch to send the POST request
+                                        fetch('http://localhost:5101/api/TodoItems', options)
+                                            .then(response => {
+                                                if (!response.ok) {
+                                                    // handle HTTP errors
+                                                    throw new Error('Network response was not ok ' + response.statusText);
+                                                }
+                                                return response.json(); // Parse the JSON response
+                                            })
+                                            .then(data => {
+                                                console.log('Success, added:', data);
+                                            })
+                                            .catch(error => {
+                                                console.error('Error:', error);
+                                            });
+                                        } 
+                                    else{
+
+                                        console.log("input undefined");
+
+                                    }
 
 
                     //remove add menu
@@ -529,67 +538,66 @@ async function DisplayFetch(end) {
     /////////////
 
     // add complete button functionality
-
     const checkboxes = document.getElementsByClassName("CompleteCheck");
 
-    console.log(checkboxes);
+    if(checkboxes[0] !== undefined){
+        for(checkbox in checkboxes){
 
-    for(checkbox in checkboxes){
+            //find id
+            const check = document.getElementById(checkbox.id);
 
-        //find id
-        const check = document.getElementById(checkbox.id);
+            check.addEventListener("click", (event) => {
+        
+                console.log("COMPLETED " + checkbox.id);
 
-        check.addEventListener("click", (event) => {
-    
-            console.log("COMPLETED " + checkbox.id);
+                const Name = "empty";
+                const Id = checkbox.id;
 
-            const Name = "empty";
-            const Id = checkbox.id;
+                for(const item of todoList){
+                    console.log(item.name);
 
-            for(const item of todoList){
-                console.log(item.name);
+                    if(item.id == Id){
+                        Name = item.name;
+                    }
 
-                if(item.id == Id){
-                    Name = item.name;
+                console.log("Data: " + Name + Id);
                 }
 
-            console.log("Data: " + Name + Id);
-            }
+                                // post supplied data
 
-                            // post supplied data
+                                        // data you want to send in the request
+                                        const data = {
+                                            Id: Id,
+                                            Name: Name,
+                                            IsComplete: true
+                                        };
 
-                                    // data you want to send in the request
-                                    const data = {
-                                        Id: Id,
-                                        Name: Name,
-                                        IsComplete: true
-                                    };
+                                        // fetch options
+                                        const options = {
+                                            method: 'PUT',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify(data) // convert the data to a JSON string
+                                        };
 
-                                    // fetch options
-                                    const options = {
-                                        method: 'PUT',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify(data) // convert the data to a JSON string
-                                    };
-
-                                    // use fetch to send the POST request
-                                    fetch('http://localhost:5101/api/TodoItems/' + Id, options)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                // handle HTTP errors
-                                                throw new Error('Network response was not ok ' + response.statusText);
-                                            }
-                                            return response.json(); // Parse the JSON response
-                                        })
-                                        .then(data => {
-                                            console.log('Success, completed:', data);
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error);
-                                        });
-    
-        });
+                                        // use fetch to send the POST request
+                                        fetch('http://localhost:5101/api/TodoItems/' + Id, options)
+                                            .then(response => {
+                                                if (!response.ok) {
+                                                    // handle HTTP errors
+                                                    throw new Error('Network response was not ok ' + response.statusText);
+                                                }
+                                                return response.json(); // Parse the JSON response
+                                            })
+                                            .then(data => {
+                                                console.log('Success, completed:', data);
+                                            })
+                                            .catch(error => {
+                                                console.error('Error:', error);
+                                            });
+        
+            });
+        }
     }
 }
