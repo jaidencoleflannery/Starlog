@@ -6,6 +6,7 @@ window.onload = function() {
 
     title();
     nav();
+
     loadTasks();
 
   };

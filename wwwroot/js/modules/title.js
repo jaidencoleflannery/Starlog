@@ -22,7 +22,7 @@ function title(){
             var randomColor = colors[Math.floor(Math.random() * colors.length)];
             cursor.style.color = randomColor;
 
-            window.location.href = "/wwwroot/index.html";
+            window.location.href = "/index.html";
         });
 
         cursor.addEventListener("mouseout", (event) => {

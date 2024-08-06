@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets/js/main.js"
     },
     {
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/containers.js",
+      "PackagePath": "staticwebassets/js/modules/containers.js"
+    },
+    {
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/getTasks.js",
+      "PackagePath": "staticwebassets/js/modules/getTasks.js"
+    },
+    {
       "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/loadTasks.js",
       "PackagePath": "staticwebassets/js/modules/loadTasks.js"
     },
