@@ -1,6 +1,6 @@
 import * as task from './tasks.js';
 
-function displayTasks(){
+async function displayTasks(){
     
     //create main container and assign it to 'list'
      const itemsList = document.createElement("div");
@@ -28,11 +28,7 @@ function displayTasks(){
      itemsListCompleted.appendChild(completedTitleDiv);
 
     //fetch todo list
-    const todoList = task.getTasks().then(todoList => {
-        console.log(todoList); // This will log the actual result
-    }).catch(error => {
-        console.error('Error fetching tasks:', error);
-    });
+    const todoList = await task.getTasks();
 
     //loop through todolist, displaying each item
     for(const item of todoList){
@@ -77,10 +73,8 @@ function displayTasks(){
             // Add checkmarks to todo items
             const svgContent = 
 
-                `<svg fill="#ffffff" width="30" height="30" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" id="CompleteCheckSVG">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                <g id="SVGRepo_iconCarrier"> <title>add</title> <path d="M24 18h-6v6h-4v-6h-6v-4h6v-6h4v6h6v4z"/> </g>
+                `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 24 24" height="24" width="24" id="Shadow-Add--Streamline-Sharp----Material-Symbols">
+                <path fill="#ffffff" d="M12.697916666666668 13.177083333333334V10.302083333333334H9.822916666666668V8.864583333333334H12.697916666666668V5.989583333333334H14.135416666666668V8.864583333333334H17.010416666666668V10.302083333333334H14.135416666666668V13.177083333333334H12.697916666666668ZM1.9166666666666667 21.083333333333336V6.0375H6.0375V1.9166666666666667H21.083333333333336V16.9625H16.9625V21.083333333333336H1.9166666666666667ZM7.4750000000000005 15.525H19.645833333333336V3.354166666666667H7.4750000000000005V15.525Z" stroke-width="1"></path>
                 </svg>`;
 
             // Append the SVG content to the newly created div
@@ -141,8 +135,24 @@ function displayTasks(){
 
             nameItem.appendChild(itemName);
 
-            //append the todo item 'name'
+            //checkmark for completing/uncompleting
+            const checkDiv = document.createElement("div");
+            checkDiv.className = "CompletedCheck";
+            checkDiv.id = item.id;
+
+            // Add un-complete button to todo items
+            const svgContent = 
+
+                `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 24 24" height="24" width="24" id="Shadow-Minus--Streamline-Sharp----Material-Symbols">
+                <path fill="#7075ff" d="M1.9166666666666667 21.083333333333336V6.0375H6.0375V1.9166666666666667H21.083333333333336V16.9625H16.9625V21.083333333333336H1.9166666666666667ZM7.4750000000000005 15.525H19.645833333333336V3.354166666666667H7.4750000000000005V15.525ZM9.822916666666668 10.302083333333334V8.864583333333334H17.010416666666668V10.302083333333334H9.822916666666668Z" stroke-width="1"></path>
+                </svg>`;
+                        
+                // Append the SVG content to the newly created div
+            checkDiv.innerHTML = svgContent;
+
+            //append the todo item 'name' and checkmark
             todoItem.appendChild(nameItem);
+            todoItem.appendChild(checkDiv);
 
             /*
             //completed
@@ -178,73 +188,79 @@ function displayTasks(){
         console.log("ERROR: listFooter not found.")
     }
 
-
-    /////////////
-
     // add complete button functionality
     const checkboxes = document.getElementsByClassName("CompleteCheck");
 
     if(checkboxes[0] !== undefined){
-        let checkbox = 0;
-        for(checkbox in checkboxes){
+        for(const checkbox in checkboxes){
 
             //find id
-            const check = document.getElementById(checkbox.id);
+            const check = document.getElementById(checkboxes[checkbox].id);
 
-            check.addEventListener("click", (event) => {
-        
-                console.log("COMPLETED " + checkbox.id);
+            if(check !== null){
+                check.addEventListener("click", (event) => {
+            
+                    console.log("COMPLETED " + checkboxes[checkbox].id);
 
-                const Name = "empty";
-                const Id = checkbox.id;
+                    let Name = "empty";
+                    const Id = checkboxes[checkbox].id;
 
-                for(const item of todoList){
-                    console.log(item.name);
+                    for(const item of todoList){
 
-                    if(item.id == Id){
-                        Name = item.name;
+                        if(item.id == Id){
+                            Name = item.name;
+                        }
+
+                    console.log("Data: " + Name + Id);
+
+                    task.status(Id, Name, true);
+
                     }
 
-                console.log("Data: " + Name + Id);
-                }
-
-                                // post supplied data
-
-                                        // data you want to send in the request
-                                        const data = {
-                                            Id: Id,
-                                            Name: Name,
-                                            IsComplete: true
-                                        };
-
-                                        // fetch options
-                                        const options = {
-                                            method: 'PUT',
-                                            headers: {
-                                                'Content-Type': 'application/json'
-                                            },
-                                            body: JSON.stringify(data) // convert the data to a JSON string
-                                        };
-
-                                        // use fetch to send the POST request
-                                        fetch('http://localhost:5101/api/TodoItems/' + Id, options)
-                                            .then(response => {
-                                                if (!response.ok) {
-                                                    // handle HTTP errors
-                                                    throw new Error('Network response was not ok ' + response.statusText);
-                                                }
-                                                return response.json(); // Parse the JSON response
-                                            })
-                                            .then(data => {
-                                                console.log('Success, completed:', data);
-                                            })
-                                            .catch(error => {
-                                                console.error('Error:', error);
-                                            });
-        
-            });
+                    // reload the current page
+                    window.location.reload();
+            
+                })
+            }
         }
     }
+
+     // add complete button functionality
+     const completedCheckboxes = document.getElementsByClassName("CompletedCheck");
+
+     if(completedCheckboxes[0] !== undefined){
+         for(const checkbox in completedCheckboxes){
+ 
+             //find id
+             const check = document.getElementById(completedCheckboxes[checkbox].id);
+ 
+             if(check !== null){
+                 check.addEventListener("click", (event) => {
+             
+                     console.log("COMPLETED " + completedCheckboxes[checkbox].id);
+ 
+                     let Name = "empty";
+                     const Id = completedCheckboxes[checkbox].id;
+ 
+                     for(const item of todoList){
+ 
+                         if(item.id == Id){
+                             Name = item.name;
+                         }
+ 
+                     console.log("Data: " + Name + Id);
+ 
+                     task.status(Id, Name, false);
+ 
+                     }
+ 
+                     // reload the current page
+                     window.location.reload();
+             
+                 })
+             }
+         }
+     }
 }
 
 export { displayTasks };

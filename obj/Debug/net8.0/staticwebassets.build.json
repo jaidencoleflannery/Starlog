@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DAF5vM5Jmk3OywUYu6n1Yg4EMwRv8gyuTUxzU3hGq9s=",
+  "Hash": "ALftqfMDcg42du7+GbNfsJjmsjgwYfB9onbL/y9l9BI=",
   "Source": "TodoApi",
   "BasePath": "_content/TodoApi",
   "Mode": "Default",
@@ -169,12 +169,12 @@
       "OriginalItemSpec": "wwwroot/js/modules/containers.js"
     },
     {
-      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/getTasks.js",
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/displayTasks.js",
       "SourceId": "TodoApi",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
       "BasePath": "_content/TodoApi",
-      "RelativePath": "js/modules/getTasks.js",
+      "RelativePath": "js/modules/displayTasks.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,7 +185,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/modules/getTasks.js"
+      "OriginalItemSpec": "wwwroot/js/modules/displayTasks.js"
     },
     {
       "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/loadTasks.js",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/modules/nav.js"
+    },
+    {
+      "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/tasks.js",
+      "SourceId": "TodoApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/",
+      "BasePath": "_content/TodoApi",
+      "RelativePath": "js/modules/tasks.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/modules/tasks.js"
     },
     {
       "Identity": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/title.js",

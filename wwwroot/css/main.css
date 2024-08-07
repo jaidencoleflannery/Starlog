@@ -131,13 +131,15 @@ input[type=checkbox].hidden{
         font-size: 1em;
         text-align: center;
 
+        transition: 1s;
+
 }
 
 #signature:hover{
 
     transition: 1s;
 
-    scale: 1.05;
+    scale: 1.02;
 
     cursor: pointer;
 
@@ -396,9 +398,10 @@ input[type=checkbox].hidden{
     max-height: 20em;
 
     overflow: auto;
-        /* hide scrollbar */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+
+    /* hide scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 
     transition-duration: 1s;
 
@@ -406,7 +409,6 @@ input[type=checkbox].hidden{
     border-radius: 1em;
 
     padding: 0;
-    padding-bottom: 1%;
     margin: 1em;
 
 }
@@ -433,7 +435,6 @@ input[type=checkbox].hidden{
     border-radius: 1em;
 
     padding: 0;
-    padding-bottom: 1%;
     margin: 1em;
     
 
@@ -478,10 +479,16 @@ input[type=checkbox].hidden{
 }
 
 #ItemsList > .sectionTitle{
-    color: white;
 
     border-bottom: .15em dashed white;
     color: white;
+
+}
+
+#ItemsListCompleted > .sectionTitle{
+
+    border-bottom: .15em dashed #7075FF;;
+    color: #7075FF;
 
 }
 
@@ -490,7 +497,7 @@ input[type=checkbox].hidden{
     display: flex;
     flex-direction: column;
 
-    flex-grow: 10;
+    flex-basis: 30%;
     max-width: 20%;
     min-width: 20%;
     max-height: 10em;
@@ -498,11 +505,12 @@ input[type=checkbox].hidden{
 
     overflow: hidden;
 
+    color: white;
+
     border: .15em dashed #ffffff;
     border-radius: .5em;
 
     margin: 2.3%;
-    margin-bottom: 0;
     padding: 0;
 
     transition-duration: .5s;
@@ -514,7 +522,7 @@ input[type=checkbox].hidden{
     display: flex;
     flex-direction: column;
 
-    flex-grow: 10;
+    flex-basis: 30%;
     max-width: 20%;
     min-width: 20%;
     max-height: 10em;
@@ -527,8 +535,7 @@ input[type=checkbox].hidden{
     border: .15em dashed #7075FF;
     border-radius: .5em;
 
-    margin: 1%;
-    margin-bottom: 0;
+    margin: 2.3%;
     padding: 0;
 
     transition-duration: .5s;
@@ -608,6 +615,35 @@ input[type=checkbox].hidden{
 }
 
 .CompleteCheck > svg{
+
+    display: flex;
+
+    justify-content: bottom;
+    align-items: right;
+
+    right: 0;
+    bottom: 0;
+
+}
+
+
+.CompletedCheck {
+
+    display: flex;
+    flex-grow: 100;
+
+    height: fit-content;
+
+    margin: .5em;
+
+    bottom: auto;
+
+    justify-content: right;
+    align-items: center;
+
+}
+
+.CompletedCheck > svg{
 
     display: flex;
 

@@ -33,8 +33,8 @@
       "PackagePath": "staticwebassets/js/modules/containers.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/getTasks.js",
-      "PackagePath": "staticwebassets/js/modules/getTasks.js"
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/displayTasks.js",
+      "PackagePath": "staticwebassets/js/modules/displayTasks.js"
     },
     {
       "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/loadTasks.js",
@@ -43,6 +43,10 @@
     {
       "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/nav.js",
       "PackagePath": "staticwebassets/js/modules/nav.js"
+    },
+    {
+      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/tasks.js",
+      "PackagePath": "staticwebassets/js/modules/tasks.js"
     },
     {
       "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/title.js",
