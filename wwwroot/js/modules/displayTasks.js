@@ -30,147 +30,186 @@ async function displayTasks(){
     //fetch todo list
     const todoList = await task.getTasks();
 
-    //loop through todolist, displaying each item
-    for(const item of todoList){
+    //alert user if no tasks exist
+    if(todoList === 0){
+        const todoItem = document.createElement("div");
+                todoItem.id = 0;
+                todoItem.className = "TodoItem";
+                
+                //create a string to print to the screen
 
-        //create individual items
-        if(!item.isComplete){
-            const todoItem = document.createElement("div");
-            todoItem.id = item.id;
-            todoItem.className = "TodoItem";
-            
-            //create a string to print to the screen (individually)
+                //id
+                const idString = ('0');
+                let itemId = document.createTextNode(idString);
 
-            //id
-            const idString = (item.id);
-            let itemId = document.createTextNode(idString);
+                const IdItem = document.createElement("div");
+                IdItem.id = (idString + "Id");
+                IdItem.className = "TodoItemId";
 
-            const IdItem = document.createElement("div");
-            IdItem.id = (item.id + "Id");
-            IdItem.className = "TodoItemId";
+                IdItem.appendChild(itemId);
 
-            IdItem.appendChild(itemId);
-
-            //append the todo item 'id'
-            todoItem.appendChild(IdItem);
+                //append the todo item 'id'
+                todoItem.appendChild(IdItem);
 
 
-            //name
-            const nameString = (item.name);
-            let itemName = document.createTextNode(nameString);
+                //name
+                const nameString = ('NO TASKS EXIST');
+                let itemName = document.createTextNode(nameString);
 
-            const nameItem = document.createElement("div");
-            nameItem.id = (item.id + ".name");
-            nameItem.className = "TodoItemName";
+                const nameItem = document.createElement("div");
+                nameItem.id = ('0' + ".name");
+                nameItem.className = "TodoItemName";
 
-            nameItem.appendChild(itemName);
+                nameItem.appendChild(itemName);
 
-            //checkmark for completing/uncompleting
-            const checkDiv = document.createElement("div");
-            checkDiv.className = "CompleteCheck";
-            checkDiv.id = item.id;
+                todoItem.appendChild(nameItem);
 
-            // Add checkmarks to todo items
-            const svgContent = 
+                itemsList.appendChild(todoItem);
+    }
 
-                `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 24 24" height="24" width="24" id="Shadow-Add--Streamline-Sharp----Material-Symbols">
-                <path fill="#ffffff" d="M12.697916666666668 13.177083333333334V10.302083333333334H9.822916666666668V8.864583333333334H12.697916666666668V5.989583333333334H14.135416666666668V8.864583333333334H17.010416666666668V10.302083333333334H14.135416666666668V13.177083333333334H12.697916666666668ZM1.9166666666666667 21.083333333333336V6.0375H6.0375V1.9166666666666667H21.083333333333336V16.9625H16.9625V21.083333333333336H1.9166666666666667ZM7.4750000000000005 15.525H19.645833333333336V3.354166666666667H7.4750000000000005V15.525Z" stroke-width="1"></path>
-                </svg>`;
+    if(todoList !== 0){
+        //loop through todolist, displaying each item
+        for(const item of todoList){
 
-            // Append the SVG content to the newly created div
-            checkDiv.innerHTML = svgContent;
+            //create individual items
+            if(!item.isComplete){
+                const todoItem = document.createElement("div");
+                todoItem.id = item.id;
+                todoItem.className = "TodoItem";
+                
+                //create a string to print to the screen (individually)
 
-            //append the todo item 'name' and checkmark
-            todoItem.appendChild(nameItem);
-            todoItem.appendChild(checkDiv);
+                //id
+                const idString = (item.id);
+                let itemId = document.createTextNode(idString);
 
-            /*
-            //completed
-            const completedString = ("Completed: " + item.isComplete);
-            let itemIsComplete = document.createTextNode(completedString);
+                const IdItem = document.createElement("div");
+                IdItem.id = (item.id + "Id");
+                IdItem.className = "TodoItemId";
 
-            const completedItem = document.createElement("div");
-            completedItem.id = (item.id + ".completed");
-            completedItem.className = "TodoItemCompleted";
+                IdItem.appendChild(itemId);
 
-            completedItem.appendChild(itemIsComplete);
-
-            //append the todo item 'iscompleted'
-            todoItem.appendChild(completedItem);
-            */
-
-            //append the todo item into its container
-            itemsList.appendChild(todoItem);
-
-        }
-
-        if(item.isComplete){
-            const todoItem = document.createElement("div");
-            todoItem.id = item.id;
-                todoItem.className = "TodoItemCompleted"
-            
-            //create a string to print to the screen (individually)
-
-            //id
-            const idString = (item.id);
-            let itemId = document.createTextNode(idString);
-
-            const IdItem = document.createElement("div");
-            IdItem.id = (item.id + ".id");
-            IdItem.className = "TodoItemId";
-
-            IdItem.appendChild(itemId);
-
-            //append the todo item 'id'
-            todoItem.appendChild(IdItem);
+                //append the todo item 'id'
+                todoItem.appendChild(IdItem);
 
 
-            //name
-            const nameString = (item.name);
-            let itemName = document.createTextNode(nameString);
+                //name
+                const nameString = (item.name);
+                let itemName = document.createTextNode(nameString);
 
-            const nameItem = document.createElement("div");
-            nameItem.id = (item.id + ".name");
-            nameItem.className = "TodoItemName";
+                const nameItem = document.createElement("div");
+                nameItem.id = (item.id + ".name");
+                nameItem.className = "TodoItemName";
 
-            nameItem.appendChild(itemName);
+                nameItem.appendChild(itemName);
 
-            //checkmark for completing/uncompleting
-            const checkDiv = document.createElement("div");
-            checkDiv.className = "CompletedCheck";
-            checkDiv.id = item.id;
+                //checkmark for completing/uncompleting
+                const checkDiv = document.createElement("div");
+                checkDiv.className = "CompleteCheck";
+                checkDiv.id = item.id;
 
-            // Add un-complete button to todo items
-            const svgContent = 
+                // Add checkmarks to todo items
+                const svgContent = 
 
-                `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 24 24" height="24" width="24" id="Shadow-Minus--Streamline-Sharp----Material-Symbols">
-                <path fill="#7075ff" d="M1.9166666666666667 21.083333333333336V6.0375H6.0375V1.9166666666666667H21.083333333333336V16.9625H16.9625V21.083333333333336H1.9166666666666667ZM7.4750000000000005 15.525H19.645833333333336V3.354166666666667H7.4750000000000005V15.525ZM9.822916666666668 10.302083333333334V8.864583333333334H17.010416666666668V10.302083333333334H9.822916666666668Z" stroke-width="1"></path>
-                </svg>`;
-                        
+                    `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 24 24" height="24" width="24" id="Shadow-Add--Streamline-Sharp----Material-Symbols">
+                    <path fill="#ffffff" d="M12.697916666666668 13.177083333333334V10.302083333333334H9.822916666666668V8.864583333333334H12.697916666666668V5.989583333333334H14.135416666666668V8.864583333333334H17.010416666666668V10.302083333333334H14.135416666666668V13.177083333333334H12.697916666666668ZM1.9166666666666667 21.083333333333336V6.0375H6.0375V1.9166666666666667H21.083333333333336V16.9625H16.9625V21.083333333333336H1.9166666666666667ZM7.4750000000000005 15.525H19.645833333333336V3.354166666666667H7.4750000000000005V15.525Z" stroke-width="1"></path>
+                    </svg>`;
+
                 // Append the SVG content to the newly created div
-            checkDiv.innerHTML = svgContent;
+                checkDiv.innerHTML = svgContent;
 
-            //append the todo item 'name' and checkmark
-            todoItem.appendChild(nameItem);
-            todoItem.appendChild(checkDiv);
+                //append the todo item 'name' and checkmark
+                todoItem.appendChild(nameItem);
+                todoItem.appendChild(checkDiv);
 
-            /*
-            //completed
-            const completedString = ("Completed: " + item.isComplete);
-            let itemIsComplete = document.createTextNode(completedString);
+                /*
+                //completed
+                const completedString = ("Completed: " + item.isComplete);
+                let itemIsComplete = document.createTextNode(completedString);
 
-            const completedItem = document.createElement("div");
-            completedItem.id = (item.id + ".completed");
-            completedItem.className = "TodoItemCompleted";
+                const completedItem = document.createElement("div");
+                completedItem.id = (item.id + ".completed");
+                completedItem.className = "TodoItemCompleted";
 
-            completedItem.appendChild(itemIsComplete);
+                completedItem.appendChild(itemIsComplete);
 
-            //append the todo item 'iscompleted'
-            todoItem.appendChild(completedItem);
-            */
+                //append the todo item 'iscompleted'
+                todoItem.appendChild(completedItem);
+                */
 
-            //append the todo item into its container
-            itemsListCompleted.appendChild(todoItem);
+                //append the todo item into its container
+                itemsList.appendChild(todoItem);
+
+            }
+
+            if(item.isComplete){
+                const todoItem = document.createElement("div");
+                todoItem.id = item.id;
+                    todoItem.className = "TodoItemCompleted"
+                
+                //create a string to print to the screen (individually)
+
+                //id
+                const idString = (item.id);
+                let itemId = document.createTextNode(idString);
+
+                const IdItem = document.createElement("div");
+                IdItem.id = (item.id + ".id");
+                IdItem.className = "TodoItemId";
+
+                IdItem.appendChild(itemId);
+
+                //append the todo item 'id'
+                todoItem.appendChild(IdItem);
+
+
+                //name
+                const nameString = (item.name);
+                let itemName = document.createTextNode(nameString);
+
+                const nameItem = document.createElement("div");
+                nameItem.id = (item.id + ".name");
+                nameItem.className = "TodoItemName";
+
+                nameItem.appendChild(itemName);
+
+                //checkmark for completing/uncompleting
+                const checkDiv = document.createElement("div");
+                checkDiv.className = "CompletedCheck";
+                checkDiv.id = item.id;
+
+                // Add un-complete button to todo items
+                const svgContent = 
+
+                    `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 24 24" height="24" width="24" id="Shadow-Minus--Streamline-Sharp----Material-Symbols">
+                    <path fill="#7075ff" d="M1.9166666666666667 21.083333333333336V6.0375H6.0375V1.9166666666666667H21.083333333333336V16.9625H16.9625V21.083333333333336H1.9166666666666667ZM7.4750000000000005 15.525H19.645833333333336V3.354166666666667H7.4750000000000005V15.525ZM9.822916666666668 10.302083333333334V8.864583333333334H17.010416666666668V10.302083333333334H9.822916666666668Z" stroke-width="1"></path>
+                    </svg>`;
+                            
+                    // Append the SVG content to the newly created div
+                checkDiv.innerHTML = svgContent;
+
+                //append the todo item 'name' and checkmark
+                todoItem.appendChild(nameItem);
+                todoItem.appendChild(checkDiv);
+
+                /*
+                //completed
+                const completedString = ("Completed: " + item.isComplete);
+                let itemIsComplete = document.createTextNode(completedString);
+
+                const completedItem = document.createElement("div");
+                completedItem.id = (item.id + ".completed");
+                completedItem.className = "TodoItemCompleted";
+
+                completedItem.appendChild(itemIsComplete);
+
+                //append the todo item 'iscompleted'
+                todoItem.appendChild(completedItem);
+                */
+
+                //append the todo item into its container
+                itemsListCompleted.appendChild(todoItem);
+            }
         }
     }
 
@@ -213,6 +252,7 @@ async function displayTasks(){
 
                     console.log("Data: " + Name + Id);
 
+                    //call object function to change status in database
                     task.status(Id, Name, true);
 
                     }
@@ -250,6 +290,7 @@ async function displayTasks(){
  
                      console.log("Data: " + Name + Id);
  
+                    //call object function to change status in database
                      task.status(Id, Name, false);
  
                      }

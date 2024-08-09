@@ -1,6 +1,9 @@
-//adds add, remove, and clearall functionality to nav dropdown
+import * as task from './tasks.js';
+
+//adds add, remove, and clearall functionality to nav dropdown, calling tasks.js for functionality
 function nav(){
 
+    //check if the add/remove/clearall form exists, if yes, remove it
     const navExists = document.getElementById("NavFormEmpty");
     if(navExists){
         navExists.remove();
@@ -10,18 +13,20 @@ function nav(){
     const navForm = document.createElement("div");
     navForm.id = "NavFormEmpty";
 
-    //add
+    //add form
+
+    //add functionality to the "add" nav button
     const add = document.getElementById("AddOption");
     
     add.addEventListener("click", (event) => {
 
-        //remove menu
+        //if menu is already filled, remove menu contents
         let cursor = document.getElementById("FormContainer");
-        if(cursor){
-            cursor.remove();
-        }
+            if(cursor){
+                cursor.remove();
+            }
 
-        //#NavForm contains styling that will make the parent div appear
+        //'#NavForm' contains styling that will make the parent div appear
         navForm.id = "NavForm";
 
         //fill form with options
@@ -53,57 +58,11 @@ function nav(){
             addCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
 
-                let task = document.getElementById("AddTaskInput");
-                // this is always returning true for some reason V
-                let completedCheck = document.getElementById("AddCompletedCheckbox").checked;
+                let taskInput = document.getElementById("AddTaskInput");
+                let completed = document.getElementById("AddCompletedCheckbox").checked;
 
-                let completed = false;
-                    if(completedCheck == true){
-                        completed = true;
-                    }
-
-                                // post supplied data
-
-                                    // data you want to send in the request
-                                    const data = {
-                                        Name: task.value,
-                                        IsComplete: completed
-                                    };
-
-                                    const JSONdata = JSON.stringify(data);
-                                 
-                                    if(JSONdata !== undefined){
-                                        // fetch options
-                                        const options = {
-                                            method: 'POST',
-                                            headers: {
-                                                'Content-Type': 'application/json'
-                                            },
-                                            body: JSONdata // convert the data to a JSON string
-                                        };
-
-                                        // use fetch to send the POST request
-                                        fetch('http://localhost:5101/api/TodoItems', options)
-                                            .then(response => {
-                                                if (!response.ok) {
-                                                    // handle HTTP errors
-                                                    throw new Error('Network response was not ok ' + response.statusText);
-                                                }
-                                                return response.json(); // Parse the JSON response
-                                            })
-                                            .then(data => {
-                                                console.log('Success, added:', data);
-                                            })
-                                            .catch(error => {
-                                                console.error('Error:', error);
-                                            });
-                                        } 
-                                    else{
-
-                                        console.log("input undefined");
-
-                                    }
-
+            // post supplied data
+            task.post(taskInput.value, completed)
 
                     //remove add menu
                     let cursor = document.getElementById("NavForm");
@@ -157,42 +116,11 @@ function nav(){
             removeCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
 
-                let task = document.getElementById("RemoveTaskInput");
                 let id = document.getElementById("RemoveId");
+                let taskInput = document.getElementById("RemoveTaskInput");
 
-                                //post supplied data
-
-                                    // data you want to send in the request
-                                    const data = {
-                                        Id: id.value,
-                                        Name: task.value
-                                    };
-
-                                    // define the options for the fetch request
-                                    const options = {
-                                        method: 'DELETE',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify(data) // Convert the data to a JSON string
-                                    };
-
-                                    // Use fetch to send the POST request
-                                    fetch('http://localhost:5101/api/TodoItems/' + id.value, options)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                // Handle HTTP errors
-                                                throw new Error('Network response was not ok ' + response.statusText);
-                                            }
-                                            return response.json();
-                                        })
-                                        .then(data => {
-                                            console.log('Success, removed:', data);
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error); 
-                                        });
-
+            //remove supplied data
+            task.remove(id, taskInput.value);
 
                     //remove menu
                     let cursor = document.getElementById("NavForm");
@@ -239,29 +167,9 @@ function nav(){
             clearCursor.addEventListener("submit", (e) => {
                 e.preventDefault();
 
-                                //clear all data
-
-                                    const options = {
-                                        method: 'DELETE'
-                                    };
-
-                                    // fetch clear data
-                                    fetch('http://localhost:5101/api/TodoItems', options)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                // Handle HTTP errors
-                                                throw new Error('Network response was not ok ' + response.statusText);
-                                            }
-                                            return response.json();
-                                        })
-                                        .then(data => {
-                                            console.log('Success, cleared');
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error);
-                                        });
-
-
+            //clear all data
+            task.clearAll();
+                        
                     //remove menu
                     let cursor = document.getElementById("NavForm");
                     cursor.remove();

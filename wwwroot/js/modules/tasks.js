@@ -81,5 +81,114 @@ function status(Id, Name, IsComplete){
         });
 }
 
+//post supplied data
+function post(taskName, isComplete){
 
-export { getTasks, buildTasks, status };
+    //prepare data and options
+    const data = {
+        Name: taskName,
+        IsComplete: isComplete
+    };
+    //turn data into JSON format
+    const JSONdata = JSON.stringify(data);
+ 
+    //verify JSONdata contains information, and then generate options
+    if(JSONdata !== undefined){
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSONdata 
+        };
+
+        // use fetch to send the POST request containing JSONdata and the generated options
+        fetch('http://localhost:5101/api/TodoItems', options)
+            .then(response => {
+                if (!response.ok) {
+                    // handle HTTP errors
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json(); // Parse the JSON response
+            })
+            .then(data => {
+                console.log('Success, added:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } 
+        else{
+        console.log("input undefined");
+        }
+
+}
+
+//remove supplied data
+function remove(id, taskName){
+
+    //prepare data and options
+    const data = {
+        id: id,
+        Name: taskName
+    };
+    //turn data into JSON format
+    const JSONdata = JSON.stringify(data);
+ 
+    //verify JSONdata contains information, and then generate options
+    if(JSONdata !== undefined){
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSONdata 
+        };
+
+        // use fetch to send the DELETE request containing JSONdata and the generated options
+        fetch('http://localhost:5101/api/TodoItems', options)
+            .then(response => {
+                if (!response.ok) {
+                    // handle HTTP errors
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json(); // Parse the JSON response
+            })
+            .then(data => {
+                console.log('Success, added:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } 
+        else{
+        console.log("input undefined");
+        }
+}
+
+function clearAll(){
+
+    const options = {
+        method: 'DELETE'
+    };
+
+    //clear all data
+    fetch('http://localhost:5101/api/TodoItems', options)
+        .then(response => {
+            if (!response.ok) {
+                // Handle HTTP errors
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success, cleared');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
+}
+
+
+export { getTasks, buildTasks, status, post, remove, clearAll };

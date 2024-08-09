@@ -8,7 +8,7 @@ async function loadTasks() {
     task.buildTasks();
 
     //add each task to the parent container div
-    let list = display.displayTasks();
+    display.displayTasks();
 
 }
 

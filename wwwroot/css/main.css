@@ -30,6 +30,8 @@ body{
     max-width: 100vw;
     overflow: auto;
 
+    cursor: grab;
+
     margin: 0;
     padding: 0;
 
@@ -91,6 +93,8 @@ input[type=checkbox].hidden{
 
         display: flex;
 
+        transition-duration: .5s;
+
         justify-content: center;
 
         font-family: "Jacquard 12", system-ui;
@@ -105,6 +109,8 @@ input[type=checkbox].hidden{
 }
 
 .starlog{
+
+    cursor: pointer;
 
     display: flex;
 
@@ -140,8 +146,6 @@ input[type=checkbox].hidden{
     transition: 1s;
 
     scale: 1.02;
-
-    cursor: pointer;
 
 }
 
