@@ -119,16 +119,19 @@ function nav(){
                 let id = document.getElementById("RemoveId");
                 let taskInput = document.getElementById("RemoveTaskInput");
 
-            //remove supplied data
-            task.remove(id, taskInput.value);
+            if(id.value !== undefined){
 
-                    //remove menu
-                    let cursor = document.getElementById("NavForm");
-                    cursor.remove();
+                //remove supplied data
+                task.remove(id.value);
 
-                    location.reload();
+                        //remove menu
+                        let cursor = document.getElementById("NavForm");
+                        cursor.remove();
 
-              });
+                        location.reload();
+            }
+
+            });
     });
 
     //clear all

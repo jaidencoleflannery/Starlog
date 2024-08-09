@@ -143,7 +143,18 @@ input[type=checkbox].hidden{
 
 #signature:hover{
 
-    transition: 1s;
+    position: sticky;
+    z-index: 1;
+    top: auto;
+    bottom: 1em;
+
+    width: 90%;
+
+    font-family: "Jacquard 12", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    text-align: center;
 
     scale: 1.02;
 

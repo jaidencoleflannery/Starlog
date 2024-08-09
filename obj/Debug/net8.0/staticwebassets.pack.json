@@ -1,71 +1,71 @@
 {
   "Files": [
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/css/main.css",
-      "PackagePath": "staticwebassets/css/main.css"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/checkmark.svg",
-      "PackagePath": "staticwebassets/images/checkmark.svg"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\checkmark.svg",
+      "PackagePath": "staticwebassets\\images\\checkmark.svg"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/finished.svg",
-      "PackagePath": "staticwebassets/images/finished.svg"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\finished.svg",
+      "PackagePath": "staticwebassets\\images\\finished.svg"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/plus.svg",
-      "PackagePath": "staticwebassets/images/plus.svg"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\plus.svg",
+      "PackagePath": "staticwebassets\\images\\plus.svg"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/images/thumbsup.svg",
-      "PackagePath": "staticwebassets/images/thumbsup.svg"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\images\\thumbsup.svg",
+      "PackagePath": "staticwebassets\\images\\thumbsup.svg"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/index.html",
-      "PackagePath": "staticwebassets/index.html"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/main.js",
-      "PackagePath": "staticwebassets/js/main.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/containers.js",
-      "PackagePath": "staticwebassets/js/modules/containers.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\modules\\containers.js",
+      "PackagePath": "staticwebassets\\js\\modules\\containers.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/displayTasks.js",
-      "PackagePath": "staticwebassets/js/modules/displayTasks.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\modules\\displayTasks.js",
+      "PackagePath": "staticwebassets\\js\\modules\\displayTasks.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/loadTasks.js",
-      "PackagePath": "staticwebassets/js/modules/loadTasks.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\modules\\loadTasks.js",
+      "PackagePath": "staticwebassets\\js\\modules\\loadTasks.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/nav.js",
-      "PackagePath": "staticwebassets/js/modules/nav.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\modules\\nav.js",
+      "PackagePath": "staticwebassets\\js\\modules\\nav.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/tasks.js",
-      "PackagePath": "staticwebassets/js/modules/tasks.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\modules\\tasks.js",
+      "PackagePath": "staticwebassets\\js\\modules\\tasks.js"
     },
     {
-      "Id": "/Users/coleflannery/Documents/webdev/starlog/wwwroot/js/modules/title.js",
-      "PackagePath": "staticwebassets/js/modules/title.js"
+      "Id": "C:\\Users\\jaide\\Documents\\webdev\\Starlog\\wwwroot\\js\\modules\\title.js",
+      "PackagePath": "staticwebassets\\js\\modules\\title.js"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.TodoApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TodoApi.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.TodoApi.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TodoApi.props",
       "PackagePath": "build\\TodoApi.props"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TodoApi.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TodoApi.props",
       "PackagePath": "buildMultiTargeting\\TodoApi.props"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TodoApi.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TodoApi.props",
       "PackagePath": "buildTransitive\\TodoApi.props"
     }
   ],

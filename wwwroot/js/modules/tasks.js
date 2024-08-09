@@ -1,3 +1,11 @@
+class task {
+    constructor(id, name, isCompleted) {
+        this.id = id;
+        this.name = name;
+        this.isCompleted = isCompleted;
+    }
+}
+
 async function getTasks(){
 
     //fetch todo list
@@ -11,14 +19,6 @@ async function getTasks(){
     }else{
         const result = await todoList;
         return result;
-    }
-}
-
-class task {
-    constructor(id, name, isCompleted) {
-        this.id = id;
-        this.name = name;
-        this.isCompleted = isCompleted;
     }
 }
 
@@ -125,15 +125,16 @@ function post(taskName, isComplete){
 }
 
 //remove supplied data
-function remove(id, taskName){
+function remove(Id){
 
     //prepare data and options
     const data = {
-        id: id,
-        Name: taskName
+        Id: Id
     };
     //turn data into JSON format
     const JSONdata = JSON.stringify(data);
+
+    console.log(JSONdata);
  
     //verify JSONdata contains information, and then generate options
     if(JSONdata !== undefined){
@@ -146,7 +147,7 @@ function remove(id, taskName){
         };
 
         // use fetch to send the DELETE request containing JSONdata and the generated options
-        fetch('http://localhost:5101/api/TodoItems', options)
+        fetch('http://localhost:5101/api/TodoItems/' + Id, options)
             .then(response => {
                 if (!response.ok) {
                     // handle HTTP errors

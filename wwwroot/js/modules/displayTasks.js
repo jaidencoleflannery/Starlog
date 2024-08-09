@@ -227,9 +227,10 @@ async function displayTasks(){
         console.log("ERROR: listFooter not found.")
     }
 
-    // add complete button functionality
+    // add complete button functionality (accesses task.js)
     const checkboxes = document.getElementsByClassName("CompleteCheck");
 
+    //check if checkboxes exist
     if(checkboxes[0] !== undefined){
         for(const checkbox in checkboxes){
 
@@ -241,21 +242,24 @@ async function displayTasks(){
             
                     console.log("COMPLETED " + checkboxes[checkbox].id);
 
-                    let Name = "empty";
+                    let Name = 'error';
                     const Id = checkboxes[checkbox].id;
+                    console.log(Id);
 
                     for(const item of todoList){
 
+                        console.log(item.id);
                         if(item.id == Id){
                             Name = item.name;
+                            break;
                         }
+
+                    }
 
                     console.log("Data: " + Name + Id);
 
                     //call object function to change status in database
                     task.status(Id, Name, true);
-
-                    }
 
                     // reload the current page
                     window.location.reload();
@@ -265,7 +269,7 @@ async function displayTasks(){
         }
     }
 
-     // add complete button functionality
+     // add un-complete button functionality (accesses task.js)
      const completedCheckboxes = document.getElementsByClassName("CompletedCheck");
 
      if(completedCheckboxes[0] !== undefined){
@@ -279,21 +283,23 @@ async function displayTasks(){
              
                      console.log("COMPLETED " + completedCheckboxes[checkbox].id);
  
-                     let Name = "empty";
+                     let Name = "error";
                      const Id = completedCheckboxes[checkbox].id;
  
                      for(const item of todoList){
+
+                        console.log(item.id);
+                        if(item.id == Id){
+                            Name = item.name;
+                            break;
+                        }
+
+                    }
  
-                         if(item.id == Id){
-                             Name = item.name;
-                         }
- 
-                     console.log("Data: " + Name + Id);
+                    console.log("Data: " + Name + Id);
  
                     //call object function to change status in database
                      task.status(Id, Name, false);
- 
-                     }
  
                      // reload the current page
                      window.location.reload();
