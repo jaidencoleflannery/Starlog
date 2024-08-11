@@ -239,24 +239,18 @@ async function displayTasks(){
 
             if(check !== null){
                 check.addEventListener("click", (event) => {
-            
-                    console.log("COMPLETED " + checkboxes[checkbox].id);
 
                     let Name = 'error';
                     const Id = checkboxes[checkbox].id;
-                    console.log(Id);
 
                     for(const item of todoList){
 
-                        console.log(item.id);
                         if(item.id == Id){
                             Name = item.name;
                             break;
                         }
 
                     }
-
-                    console.log("Data: " + Name + Id);
 
                     //call object function to change status in database
                     task.status(Id, Name, true);
@@ -280,23 +274,18 @@ async function displayTasks(){
  
              if(check !== null){
                  check.addEventListener("click", (event) => {
-             
-                     console.log("COMPLETED " + completedCheckboxes[checkbox].id);
- 
+
                      let Name = "error";
                      const Id = completedCheckboxes[checkbox].id;
  
                      for(const item of todoList){
 
-                        console.log(item.id);
                         if(item.id == Id){
                             Name = item.name;
                             break;
                         }
 
                     }
- 
-                    console.log("Data: " + Name + Id);
  
                     //call object function to change status in database
                      task.status(Id, Name, false);
