@@ -1,0 +1,22 @@
+:root {
+    --bg-color: rgb(24, 24, 24);
+    --primary-color: rgb(38, 38, 38);
+    --text-color: rgb(255, 255, 255);
+  }
+
+  html {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    user-select: none;
+}
+
+  body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }

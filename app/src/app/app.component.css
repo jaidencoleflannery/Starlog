@@ -1,0 +1,23 @@
+
+:root {
+    --bg-color: rgb(24, 24, 24);
+    --primary-color: rgb(38, 38, 38);
+    --text-color: rgb(255, 255, 255);
+    --highlight-color: rgb(221, 255, 0);
+    --transition-speed: 2s;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+app-nav {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: pink;
+}

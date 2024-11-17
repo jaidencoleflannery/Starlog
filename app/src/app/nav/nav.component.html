@@ -1,0 +1,21 @@
+<div class="navbar">
+
+    <a href="/home" class="logo">✻</a>
+
+    <div class="nav-links">
+        <ng-container>
+            @if (auth.isAuthenticated$ | async) {
+              <button class='nav-option' (click)="auth.logout({ logoutParams: { returnTo: origin } })">
+                Log out
+              </button>
+            } @else {
+              <button class='nav-option' (click)="auth.loginWithRedirect()">Log in</button>
+            }
+          </ng-container>
+        <a class='nav-option' href="history">History</a>
+        <a class='nav-option' href="about">About</a>
+        <span (click)='changeTheme()'>✴</span>
+    </div>
+    
+  </div>
+  
