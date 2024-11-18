@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
 
     this.themeService.verifyTheme();
 
-    const userInfo = await this.getUserService.getData();
-    console.log(userInfo);
+    const userData = await this.getUserService.getData();
+    console.log(userData);
   }
 }

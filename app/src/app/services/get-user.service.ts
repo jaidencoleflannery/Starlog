@@ -7,12 +7,13 @@ export class GetUserService {
 
   constructor() { }
 
-  getData() {
+  async getData() {
     try {
-      const userData = fetch('http://localhost:3000/get-data');
+      const response = await fetch('http://localhost:3000/get-data');
+      const userData = await response.json();
       return userData;
     } catch (error) {
-      console.error('Error fetching data:');
+      console.error('Error fetching data');
       return null;
     }
   }
