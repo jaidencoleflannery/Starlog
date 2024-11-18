@@ -4,6 +4,7 @@ import { NavComponent } from './nav/nav.component';
 import { ThemeService } from './services/theme.service';
 import { UserAuthService } from './services/user-auth.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { GetUserService } from './services/get-user.service';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,13 @@ export class AppComponent implements OnInit{
   constructor(
     private themeService: ThemeService, 
     private userAuthService: UserAuthService, 
+    private getUserService: GetUserService,
     private router: Router, 
     public auth: AuthService,) {}
 
   userInfo: any;
 
-  ngOnInit() {
+  async ngOnInit() {
     this.userAuthService.getUser().subscribe(user => {
       if (!user) {
         this.auth.loginWithRedirect();
@@ -30,5 +32,8 @@ export class AppComponent implements OnInit{
     });
 
     this.themeService.verifyTheme();
+
+    const userInfo = await this.getUserService.getData();
+    console.log(userInfo);
   }
 }

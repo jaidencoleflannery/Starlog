@@ -78,5 +78,8 @@ benchmarks/graphs
 # Hide Auth0 information
 app.config.ts
 
+# Protect test db information
+db.js
+
 # ignore additional files using core.excludesFile
 # https://git-scm.com/docs/gitignore
